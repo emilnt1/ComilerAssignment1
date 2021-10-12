@@ -95,20 +95,14 @@ class Assignment extends Command{
 
 class Output extends Command{
     Expr e;
-	Condition c;
-    Output(Expr e, Condition c){
+    Output(Expr e){
 	this.e=e;
-	this.c=c;
+
     }
     public void eval(Environment env){
-		if (e.eval(env) != null){
 			Double d=e.eval(env);
 			System.out.println(d);
-		} else if (c.eval(env)){
-			boolean b=c.eval(env);
-			System.out.println(b);
-		}
-		// FINISH THIS
+
     }
 }
 
@@ -121,6 +115,18 @@ class While extends Command{
     public void eval(Environment env){
 	while (c.eval(env))
 	    body.eval(env);
+    }
+}
+
+class If extends Command{
+    Condition c;
+    Command body;
+    If(Condition c, Command body){
+    this.c=c; this.body=body;
+    }
+    public void eval(Environment env){
+    if (c.eval(env))
+        body.eval(env);
     }
 }
 

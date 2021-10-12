@@ -2,12 +2,17 @@
 
 n=5;
 result=1;
+x=5;
 
 while(n!=0){
   result=result*n;
   n=n+(-1);
 }
 
-//output result;
-output 2!=2;
+if(x==5){
+    result=result+1;
+}
+
+output result;
+//output 2!=2;
 //output 2-3;

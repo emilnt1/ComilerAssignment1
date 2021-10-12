@@ -51,11 +51,12 @@ public interface implVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWhileLoop(implParser.WhileLoopContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link implParser#excon}.
+	 * Visit a parse tree produced by the {@code IfStatement}
+	 * labeled alternative in {@link implParser#command}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExcon(implParser.ExconContext ctx);
+	T visitIfStatement(implParser.IfStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link implParser#expr}.

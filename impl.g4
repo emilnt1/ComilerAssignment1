@@ -9,11 +9,11 @@ program : c=command                      # SingleCommand
 	;
 	
 command : x=ID '=' e=expr ';'	         # Assignment
-	| 'output' ec=excon ';' 				 # Output
+	| 'output' e=expr ';' 				 # Output
         | 'while' '('c=condition')' p=program  # WhileLoop
+        | 'if' '('c=condition')' p=program #IfStatement
 	;
-	
-excon : expr | condition;
+
 	
 expr	: e1=expr '/' e2=expr # Division
 	| e1=expr '*' e2=expr # Multiplication
