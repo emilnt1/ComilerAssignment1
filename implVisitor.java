@@ -72,13 +72,6 @@ public interface implVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForLoop(implParser.ForLoopContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Array}
-	 * labeled alternative in {@link implParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArray(implParser.ArrayContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link implParser#expr}.
 	 * @param ctx the parse tree
@@ -120,6 +113,13 @@ public interface implVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNegative(implParser.NegativeContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Arrayy}
+	 * labeled alternative in {@link implParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayy(implParser.ArrayyContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Constant}
 	 * labeled alternative in {@link implParser#expr}.

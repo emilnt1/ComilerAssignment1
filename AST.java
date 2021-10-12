@@ -38,6 +38,20 @@ class Division extends Expr{
     }
 }
 
+class Arrayy extends Expr{
+    String v;
+    Expr e;
+    Arrayy(String v, Expr e){
+        this.v=v; this.e=e;
+    }
+    public Double eval(Environment env){
+        Double d=e.eval(env);
+        //v = v+"["+d+"]";
+        env.setVariable(v, d);
+        return d;
+    }
+}
+
 class Constant extends Expr{
     Double d;
     Constant(Double d){this.d=d;}
@@ -148,6 +162,23 @@ class For extends Command{
         }
     }
 }
+
+class ArrayAssignment extends Command{
+    String v;
+    Expr e1;
+    Expr e2;
+    ArrayAssignment(String v, Expr e1, Expr e2){
+        this.v=v; this.e1=e1; this.e2=e2;
+    }
+    public void eval(Environment env){
+        Double d=e1.eval(env);
+        v = v+"["+d+"]";
+
+        Double i=e2.eval(env);
+        env.setVariable(v,i);
+    }
+}
+
 
 abstract class Condition extends AST{
     abstract public Boolean eval(Environment env);
