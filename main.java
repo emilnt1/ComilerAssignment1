@@ -141,15 +141,20 @@ class AstMaker extends AbstractParseTreeVisitor<AST> implements implVisitor<AST>
 	return new Equal(v1,v2);
     }
 
+	public AST visitNot(implParser.NotContext ctx){
+		Condition v1=(Condition) visit(ctx.c);
+		return new Not(v1);
+	}
+
 	public AST visitAnd(implParser.AndContext ctx){
-	Expr v1=(Expr)visit(ctx.e1);
-	Expr v2=(Expr)visit(ctx.e2);
+	Condition v1=(Condition) visit(ctx.c1);
+	Condition v2=(Condition) visit(ctx.c2);
 	return new And(v1,v2);
     }
 	
 	public AST visitOr(implParser.OrContext ctx){
-	Expr v1=(Expr)visit(ctx.e1);
-	Expr v2=(Expr)visit(ctx.e2);
+		Condition v1=(Condition) visit(ctx.c1);
+		Condition v2=(Condition) visit(ctx.c2);
 	return new Or(v1,v2);
     }
 	

@@ -171,22 +171,32 @@ class Equal extends Condition{
  
 }
 
-class And extends Condition{
-    Expr e1,e2;
-    And(Expr e1,Expr e2){this.e1=e1; this.e2=e2;}
+class Not extends Condition{
+    Condition c;
+    Not(Condition c){this.c=c;}
     public Boolean eval(Environment env){
-        return (e1.eval(env) != 0) && (e2.eval(env) != 0);
+        return !c.eval(env);
+    }
+
+}
+
+class And extends Condition{
+    Condition c1,c2;
+    And(Condition c1, Condition c2){this.c1=c1; this.c2=c2;}
+    public Boolean eval(Environment env){
+        System.out.println(c1.eval(env) && c2.eval(env));
+        return c1.eval(env) && c2.eval(env);
     }
  
 }
 
 class Or extends Condition{
-    Expr e1,e2;
-    Or(Expr e1,Expr e2){this.e1=e1; this.e2=e2;}
+    Condition c1,c2;
+    Or(Condition c1, Condition c2){this.c1=c1; this.c2=c2;}
     public Boolean eval(Environment env){
-	return (e1.eval(env) != 0) || (e2.eval(env) != 0);
+        System.out.println(c1.eval(env) || c2.eval(env));
+        return c1.eval(env) || c2.eval(env);
     }
- 
 }
 
 class Smaller extends Condition{

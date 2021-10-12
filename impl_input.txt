@@ -9,8 +9,12 @@ while(n!=0){
   n=n+(-1);
 }
 
-for(i=2..6){
+for(i=2..7){
     x=x+1;
+}
+
+if(!1==2 && !1!=1){
+    output x;
 }
 
 output result+x;

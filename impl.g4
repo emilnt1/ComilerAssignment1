@@ -28,10 +28,11 @@ expr	: e1=expr '/' e2=expr # Division
 	| '(' e=expr ')'      # Parenthesis
 	;
 
-condition : e1=expr '!=' e2=expr # Unequal
+condition : '!' c=condition # Not
+      | e1=expr '!=' e2=expr # Unequal
 	  | e1=expr '==' e2=expr # Equal
-	  | e1=expr '&&' e2=expr # And
-	  | e1=expr '||' e2=expr # Or
+	  | c1=condition '&&' c2=condition # And
+	  | c1=condition '||' c2=condition # Or
 	  | e1=expr '<' e2=expr # Smaller
 	  | e1=expr '>' e2=expr # Larger
 	  ;  
