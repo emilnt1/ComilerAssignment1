@@ -12,6 +12,7 @@ command : x=ID '=' e=expr ';'	         # Assignment
 	| 'output' e=expr ';' 				 # Output
         | 'while' '('c=condition')' p=program  # WhileLoop
         | 'if' '('c=condition')' p=program #IfStatement
+        | 'for' '(' x=ID '=' e1=expr '..' e2=expr')' p=program #ForLoop
 	;
 
 	

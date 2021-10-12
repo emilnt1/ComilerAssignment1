@@ -9,10 +9,10 @@ while(n!=0){
   n=n+(-1);
 }
 
-if(x==5){
-    result=result+1;
+for(i=2..6){
+    x=x+1;
 }
 
-output result;
+output result+x;
 //output 2!=2;
 //output 2-3;
