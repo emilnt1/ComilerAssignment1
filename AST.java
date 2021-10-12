@@ -130,6 +130,25 @@ class If extends Command{
     }
 }
 
+class For extends Command{
+    String v;
+    Expr e1;
+    Expr e2;
+    Command body;
+    For(String v, Expr e1, Expr e2,Command body){
+        this.v=v; this.e1=e1; this.e2=e2; this.body=body;
+    }
+    public void eval(Environment env){
+        Double i=e1.eval(env);
+        env.setVariable(v,i);
+        Double n=e2.eval(env);
+
+        for (; i < n; i++) {
+            body.eval(env);
+        }
+    }
+}
+
 abstract class Condition extends AST{
     abstract public Boolean eval(Environment env);
 }

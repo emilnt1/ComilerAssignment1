@@ -89,6 +89,18 @@ public interface implListener extends ParseTreeListener {
 	 */
 	void exitIfStatement(implParser.IfStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ForLoop}
+	 * labeled alternative in {@link implParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterForLoop(implParser.ForLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ForLoop}
+	 * labeled alternative in {@link implParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitForLoop(implParser.ForLoopContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link implParser#expr}.
 	 * @param ctx the parse tree

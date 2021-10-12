@@ -13,6 +13,7 @@ command : x=ID '=' e=expr ';'	         # Assignment
         | 'while' '('c=condition')' p=program  # WhileLoop
         | 'if' '('c=condition')' p=program #IfStatement
 		| x=ID '[' e=expr ']' '=' e=expr 	# ArrayAssignment
+        | 'for' '(' x=ID '=' e1=expr '..' e2=expr')' p=program #ForLoop
 	;
 
 	
