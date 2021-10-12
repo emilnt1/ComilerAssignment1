@@ -12,6 +12,7 @@ command : x=ID '=' e=expr ';'	         # Assignment
 	| 'output' e=expr ';' 				 # Output
         | 'while' '('c=condition')' p=program  # WhileLoop
         | 'if' '('c=condition')' p=program #IfStatement
+		| x=ID '[' e=expr ']' '=' e=expr 	# ArrayAssignment
 	;
 
 	
@@ -19,6 +20,7 @@ expr	: e1=expr '/' e2=expr # Division
 	| e1=expr '*' e2=expr # Multiplication
 	| e1=expr '+' e2=expr # Addition
 	| e1=expr '-' e2=expr # Subtraction
+	| x=ID '[' e=expr ']' # Array
 	| c=FLOAT 			# Constant
 	| '-' c=FLOAT 		# Negative
 	| x=ID		      # Variable
