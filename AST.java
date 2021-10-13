@@ -39,16 +39,16 @@ class Division extends Expr{
 }
 
 class Arrayy extends Expr{
-    String v;
+    String arrname;
     Expr e;
     Arrayy(String v, Expr e){
-        this.v=v; this.e=e;
+        this.arrname=v; this.e=e;
     }
     public Double eval(Environment env){
         Double d=e.eval(env);
-        //v = v+"["+d+"]";
-        env.setVariable(v, d);
-        return d;
+        arrname = arrname+"["+d+"]";
+        return env.getVariable(arrname);
+
     }
 }
 

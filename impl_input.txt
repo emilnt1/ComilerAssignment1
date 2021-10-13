@@ -16,10 +16,13 @@ for(i=2..7){
 if(!1==2 && !1!=1){
     output x;
 }
-a[1]=2;
-
+a[1]=5;
+a[5]=a[1]*2;
+a[3]=a[a[1]];
 
 output a[1];
+output a[5];
+output a[3];
 //output result+x;
 //output 2!=2;
 //output 2-3;
