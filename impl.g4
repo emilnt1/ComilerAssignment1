@@ -15,7 +15,6 @@ command : x=ID '=' e=expr ';'	         # Assignment
 		| x=ID '[' e1=expr ']' '=' e2=expr ';'	# ArrayAssignment
         | 'for' '(' x=ID '=' e1=expr '..' e2=expr')' p=program #ForLoop
 	;
-
 	
 expr	: e1=expr '/' e2=expr # Division
 	| e1=expr '*' e2=expr # Multiplication

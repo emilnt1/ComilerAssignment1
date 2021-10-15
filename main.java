@@ -135,11 +135,11 @@ class AstMaker extends AbstractParseTreeVisitor<AST> implements implVisitor<AST>
     };
 
     public AST visitConstant(implParser.ConstantContext ctx){
-	return new Constant(Double.parseDouble(ctx.c.getText())); 
+	return new Constant(new Value(Double.parseDouble(ctx.c.getText())));
     };
 	
 	public AST visitNegative(implParser.NegativeContext ctx){
-	return new Negative(Double.parseDouble(ctx.c.getText())); 
+	return new Negative(new Value(Double.parseDouble(ctx.c.getText())));
     };
 
     public AST visitUnequal(implParser.UnequalContext ctx){

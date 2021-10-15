@@ -20,9 +20,42 @@ a[1]=5;
 a[5]=a[1]*2;
 a[3]=a[a[1]];
 
-output a[1];
-output a[5];
-output a[3];
+//output a[1];
+//output a[5];
+//output a[3];
 //output result+x;
 //output 2!=2;
 //output 2-3;
+
+/* Example program for impl that tests many the features required in
+the assignment */
+
+n=49;
+k=6;
+result=1;
+
+while(n!=k && k!=0){
+  result=result*n/k;
+  n=n-1;
+  k=k-1;
+}
+
+output result;
+
+n=100;
+
+for(i=2..n){
+  a[i]=1;
+}
+
+for(i=2..n){
+  if(a[i]==1){
+    output i;
+    j=2*i;
+    while(j<n){
+      a[j]=0;
+      j=j+i;
+    }
+  }
+}
+
